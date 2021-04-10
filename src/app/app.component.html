@@ -7,3 +7,20 @@ Esse problema é inspirado na questão <a href="https://codeforces.com/problemse
 </p>
 
 <br />
+
+<mat-grid-list cols="2" rowHeight="2:1" class="mat-grid_height">
+    <mat-grid-tile>
+        <mat-form-field class="example-form-field">
+            <mat-label>Primeira palavra</mat-label>
+            <input matInput type="text" [formControl]="string1FormControl">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="example-form-field">
+            <mat-label>Segunda palavra</mat-label>
+            <input matInput type="text" [formControl]="string2FormControl">
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<h1 class="title">{{ result }}</h1>
