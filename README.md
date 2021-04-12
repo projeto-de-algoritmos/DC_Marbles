@@ -16,6 +16,8 @@ O projeto foi construido utilizando o algoritmo Merge Sort para a ordenação do
 
 O projeto é inspirado na questão [1025 do Uri](https://www.urionlinejudge.com.br/judge/pt/problems/view/1025).
 
+Você pode acessar o projeto no link: https://marbles-paa.netlify.app/
+
 ## Screenshots
 ![image_2021-04-12_20-10-08](https://user-images.githubusercontent.com/1852287/114473838-6039d000-9bcb-11eb-9e55-cca9ffc49b41.png)
 
