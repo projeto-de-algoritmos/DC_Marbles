@@ -1,4 +1,4 @@
-# Maximum Width
+# Marbles
 
 **Número da Lista**: 16<br>
 **Conteúdo da Disciplina**: Dividir e Conquistar<br>
@@ -10,15 +10,18 @@
 | 16/0144485  |  [Saleh Nazih Abdel Kader](https://github.com/devsalula) |
 
 ## Sobre 
-**WIP**
+Marbles é um jogo onde você receberá um conjunto de mármores não ordenados e deverá adivinhar a posição de um dos mármores se esse conjunto fosse ordenado.
 
+O projeto foi construido utilizando o algoritmo Merge Sort para a ordenação dos mármores dentro do conteúdo de Dividir e Conquistar.
+
+O projeto é inspirado na questão [1025 do Uri](https://www.urionlinejudge.com.br/judge/pt/problems/view/1025).
 
 ## Screenshots
 **WIP**
 
 ## Instalação 
-**Linguagem**: Javascript<br>
-**Framework**: NodeJs para o Back e Angular para o Front<br>
+**Linguagem**: Typescript<br>
+**Framework**: Angular para o Front<br>
 
 Para rodar, vai ser necessário ter o node instalado. Para isso, recomendamos seguir a documentação oficial: https://nodejs.org/pt-br/download/package-manager/
 
@@ -37,8 +40,5 @@ Agora tudo o que precisa fazer é instalar as depêndencias (`npm install`) e ro
 `ng serve`
 
 ## Uso 
-Para fazer uso do projeto, entre na rota do front. Lá você poderá utilizar **WIP**.
-O projeto também está disponível no link: **WIP**
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+Para o uso do projeto basta seguir as instruções para poder rodar o front. 
+Ou acesse o projeto no link disponível: **WIP**
