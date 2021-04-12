@@ -4,6 +4,7 @@ import { timer, Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Marbles } from '../algorithm/Marbles';
 import { MeenaSelect } from '../algorithm/MeenaSelect';
+import { Difficult } from './models/Difficult';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,10 @@ import { MeenaSelect } from '../algorithm/MeenaSelect';
 })
 export class AppComponent {
   answer = new FormControl(0, [Validators.required,]);
-  difficultValues: string[] = ['hard', 'medium', 'easy'];
-  selectedValue: string = 'easy';
+  difficultValues: Difficult[] = [{ text: 'hard', time: 120 }, { text: 'medium', time: 80 }, { text: 'easy', time: 30 }];
+  selectedValue: Difficult = { text: 'easy', time: 30 };
   numbers: number[] = [];
   subscribeTimer: any = 0;
-  timeLeft: number = 60;
   marbles: Marbles = new Marbles();
   init: boolean = false;
   response?: MeenaSelect;
@@ -24,8 +24,9 @@ export class AppComponent {
   subscription?: Subscription;
 
   start() {
-    this.numbers = this.marbles.difficultMarbles(this.selectedValue);
-    this.response = this.marbles.meenaMarbleSelectedToConsult(this.numbers);
+    this.numbers = this.marbles.difficultMarbles(this.selectedValue.text);
+    const orderedVector = this.marbles.mergesort(this.numbers);
+    this.response = this.marbles.meenaMarbleSelectedToConsult(orderedVector);
 
     console.log(this.response);
 
@@ -40,13 +41,20 @@ export class AppComponent {
   }
 
   observableTimer() {
-    this.subscribeTimer = this.timeLeft;
+    this.subscribeTimer = this.selectedValue.time;
     this.subscription = this.source.subscribe(val => {
       if (this.subscribeTimer <= 0) {
+        this.cancelTimer();
         this.subscribeTimer = 0
+        this.init = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Demorou demais brother',
+          text: 'Você não conseguiu responder a tempo, tente novamente.'
+        });
       } else {
         console.log(val, '-');
-        this.subscribeTimer = this.timeLeft - val;
+        this.subscribeTimer = this.selectedValue.time - val;
       }
     });
   }
@@ -73,7 +81,7 @@ export class AppComponent {
           text: 'Você não acertou a posição correta.'
         });
       }
-    } else if (this.answer.value == this.response.position) {
+    } else if ((this.answer.value -1) == this.response.position) {
       Swal.fire({
           icon: 'success',
           title: 'Parabens!!!',

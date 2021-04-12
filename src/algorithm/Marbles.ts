@@ -3,7 +3,7 @@ import { MeenaSelect } from "./MeenaSelect";
 export class Marbles {
 
     meenaMarbleSelectedToConsult(marbles: number[]): MeenaSelect {
-        const position = Math.floor((Math.random() * marbles.length)+5);
+        const position = Math.floor((Math.random() * marbles.length)+(marbles.length/2));
         let selectMarble = marbles[position];
         const MARBLESIZE = 99899;
         const MARBLEMINIMUM = 99000;

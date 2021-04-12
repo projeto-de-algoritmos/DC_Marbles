@@ -16,18 +16,17 @@ Esse problema é inspirado na questão do URI: <a href="https://www.urionlinejud
 
 <div class="description">
     <mat-form-field appearance="fill">
-        <mat-label>Favorite food</mat-label>
+        <mat-label>Dificuldade</mat-label>
         <mat-select [(ngModel)]="selectedValue" name="difficult">
         <mat-option *ngFor="let difficult of difficultValues" [value]="difficult">
-            {{ difficult }}
+            {{ difficult.text }}
         </mat-option>
         </mat-select>
     </mat-form-field>
     <br />
-    <button mat-raised-button (click)="start()">Começar</button>
+    <button mat-raised-button (click)="start()" [disabled]="init">Começar</button>
     <div *ngIf="response != undefined">
-        <h2 class="timer">O número é: {{ response?.selectMarble }}</h2>
-        <h2 class="timer">Faltam {{ subscribeTimer }} segundos</h2>
+        <h2 class="timer">O número é: {{ response?.selectMarble }} || Faltam {{ subscribeTimer }} segundos</h2>
     </div>
 </div>
 

@@ -17,7 +17,11 @@ O projeto foi construido utilizando o algoritmo Merge Sort para a ordenação do
 O projeto é inspirado na questão [1025 do Uri](https://www.urionlinejudge.com.br/judge/pt/problems/view/1025).
 
 ## Screenshots
-**WIP**
+![image_2021-04-12_20-10-08](https://user-images.githubusercontent.com/1852287/114473838-6039d000-9bcb-11eb-9e55-cca9ffc49b41.png)
+
+![image_2021-04-12_20-10-22](https://user-images.githubusercontent.com/1852287/114473870-721b7300-9bcb-11eb-98fa-43703e8f027d.png)
+
+![image_2021-04-12_20-10-43](https://user-images.githubusercontent.com/1852287/114473863-6f208280-9bcb-11eb-92ac-531b43afe610.png)
 
 ## Instalação 
 **Linguagem**: Typescript<br>
