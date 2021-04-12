@@ -3,8 +3,9 @@ export class Marbles {
     randomMarbles(marblesSize: number) {
         const marbles: number[] = [];
         const MARBLESIZE = 99999;
+        const MARBLEMINIMUM = 99900;
         for (let i=0; i<marblesSize; i++) {
-            marbles.push(Math.round(Math.random() * MARBLESIZE));
+            marbles.push(Math.floor(Math.random() * (MARBLESIZE - MARBLEMINIMUM + 1)) + MARBLEMINIMUM);
         }
         return marbles;
     }
@@ -12,9 +13,15 @@ export class Marbles {
     difficultMarbles(difficult: string = "easy"): number[] {
         let marbles: number[] = [];
         switch(difficult) {
+            case 'hard':
+                marbles = this.randomMarbles(100);
+                break;
+            case 'medium':
+                marbles = this.randomMarbles(25);
+                break;
             case 'easy':
             default:
-                marbles = this.randomMarbles(20);
+                marbles = this.randomMarbles(5);
                 break;
         }
         return marbles;
