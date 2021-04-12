@@ -1,33 +1,49 @@
 export class Marbles {
 
-    // randomMarbles(marblesSize: number): number[] {
+    randomMarbles(marblesSize: number) {
+        const marbles: number[] = [];
+        const MARBLESIZE = 99999;
+        for (let i=0; i<marblesSize; i++) {
+            marbles.push(Math.round(Math.random() * MARBLESIZE));
+        }
+        return marbles;
+    }
 
-    // } 
+    difficultMarbles(difficult: string = "easy"): number[] {
+        let marbles: number[] = [];
+        switch(difficult) {
+            case 'easy':
+            default:
+                marbles = this.randomMarbles(20);
+                break;
+        }
+        return marbles;
+    } 
 
     merge(marblesLeft: number[], marblesRight: number[]): number[] { 
-        let sortedArr: number[] = [];
+        let sortedMarbles: number[] = [];
         while (marblesLeft.length && marblesRight.length) { 
             if (marblesLeft[0] <= marblesRight[0]) { 
-                sortedArr.push(marblesLeft[0]); 
+                sortedMarbles.push(marblesLeft[0]); 
                 marblesLeft = marblesLeft.slice(1)
             } else { 
-                sortedArr.push(marblesRight[0]); 
+                sortedMarbles.push(marblesRight[0]); 
                 marblesRight = marblesRight.slice(1) 
             } 
         } 
         while (marblesLeft.length != 0) {
             const leftMarble = marblesLeft.shift();
             if (leftMarble != undefined) {
-                sortedArr.push(leftMarble);
+                sortedMarbles.push(leftMarble);
             }
         }
         while (marblesRight.length) {
             const rightMarble = marblesRight.shift();
             if (rightMarble != undefined) {
-                sortedArr.push(rightMarble); 
+                sortedMarbles.push(rightMarble); 
             }
         }
-        return sortedArr; 
+        return sortedMarbles; 
     }
 
     mergesort(marbles: number[]): number[] { 
