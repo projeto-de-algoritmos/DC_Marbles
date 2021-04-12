@@ -7,20 +7,46 @@ Esse problema é inspirado na questão <a href="https://codeforces.com/problemse
 </p>
 
 <br />
+<br />
 
-<mat-grid-list cols="2" rowHeight="2:1" class="mat-grid_height">
-    <mat-grid-tile>
-        <mat-form-field class="example-form-field">
-            <mat-label>Primeira palavra</mat-label>
-            <input matInput type="text" [formControl]="string1FormControl">
-        </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-form-field class="example-form-field">
-            <mat-label>Segunda palavra</mat-label>
-            <input matInput type="text" [formControl]="string2FormControl">
-        </mat-form-field>
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="description">
+    <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="difficult">
+        <mat-option *ngFor="let difficult of difficultValues" [value]="difficult">
+            {{ difficult }}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br />
+    <button mat-raised-button (click)="start()">Começar</button>
+    <div *ngIf="response != undefined">
+        <h2 class="timer">O número é: {{ response?.selectMarble }}</h2>
+        <h2 class="timer">Faltam {{ subscribeTimer }} segundos</h2>
+    </div>
+</div>
 
-<h1 class="title">{{ result }}</h1>
+<br />
+<br />
+
+<div class="description" *ngIf="init">
+    <mat-form-field class="example-form-field">
+        <mat-label>Qual a posição?</mat-label>
+        <input matInput type="text" [formControl]="answer">
+    </mat-form-field>
+    <br />
+    <button mat-raised-button (click)="confirmwAnswer()">Responder</button>
+</div>
+
+<br />
+<br />
+
+<div class="wrap-cards">
+    <mat-card class="inline-block" *ngFor="let number of numbers">
+      <mat-card-header>
+        <mat-card-title>{{ number }}</mat-card-title>
+      </mat-card-header>
+     </mat-card>
+</div>
+
+<router-outlet></router-outlet>
