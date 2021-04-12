@@ -45,4 +45,4 @@ Agora tudo o que precisa fazer é instalar as depêndencias (`npm install`) e ro
 
 ## Uso 
 Para o uso do projeto basta seguir as instruções para poder rodar o front. 
-Ou acesse o projeto no link disponível: **WIP**
+Ou acesse o projeto no link disponível: [https://marbles-paa.netlify.app](https://marbles-paa.netlify.app)
